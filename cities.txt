@@ -1,0 +1,5 @@
+London:75
+Vladivostok:25
+Ber Sheva:56
+Tel-Aviv:75
+Vladivostok:56
