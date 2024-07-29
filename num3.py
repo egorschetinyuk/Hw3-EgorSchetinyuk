@@ -2,17 +2,26 @@ try:
     names = []
     subj = []
     with open('num3.txt', 'r') as file:
-        for lines in file:
-            imy, yroki = lines.strip().split(":")
-            names.append(imy)
-            subj.append(yroki)
-            print(names)
-            print(subj)
+        for line in file:
+            line = line.strip()
+            if line:  
+                imy, yroki = line.split(":")
+                names.append(imy)
+                subj.append(yroki)
+                print(f'Names: {names}')
+                print(f'Subjects: {subj}')
+
     itog = []
-    nagmi = input("введите название предмета,по которому пойдет поиск:(Math,Science,Art,History)")
-    for name, listik in zip(names,subj):
-        if nagmi in listik:
+    nagmi = input("Введите название предмета, по которому пойдет поиск (Math, Science, Art, History): ").strip().lower()
+    
+    for name, listik in zip(names, subj):
+        if nagmi in listik.lower():  
             itog.append(name)
-    print(itog)
+    
+    if itog:
+        print(f'Результаты поиска: {itog}')
+    else:
+        print("Не найдено ни одного совпадения.")
+    
 except FileNotFoundError:
-    print("файл не найден")
+    print("Файл не найден")
